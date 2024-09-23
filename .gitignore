@@ -1,1 +1,23 @@
-ECHO is on.Temp/ 
+# Unity auto-generated folders
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+
+# Unity Package Manager
+Packages/
+PackageCache/
+
+# Visual Studio / Rider
+.vscode/
+*.csproj
+*.sln
+*.user
+*.pidb
+
+# OS-specific files
+.DS_Store
+Thumbs.db
