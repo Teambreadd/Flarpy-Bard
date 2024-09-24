@@ -21,3 +21,6 @@ PackageCache/
 # OS-specific files
 .DS_Store
 Thumbs.db
+
+# Java
+bfg-1.14.0.jar
