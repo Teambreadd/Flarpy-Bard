@@ -496,6 +496,8 @@ MonoBehaviour:
   playerScore: 0
   gameOverScreen: {fileID: 39530264}
   scoreText: {fileID: 64546579}
+  speedIncrease: 0
+  db: 0
 --- !u!4 &153365914
 Transform:
   m_ObjectHideFlags: 0
@@ -537,7 +539,7 @@ Transform:
   m_GameObject: {fileID: 279902524}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30, y: 7.5, z: 0.91}
+  m_LocalPosition: {x: 32.9, y: 7.5, z: 0.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1128,7 +1130,7 @@ Transform:
   m_GameObject: {fileID: 1325519611}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.3, y: -7.5, z: 0.91}
+  m_LocalPosition: {x: 45.9, y: -7.5, z: 0.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1258,6 +1260,7 @@ MonoBehaviour:
   Pipe: {fileID: 3263556357750408170, guid: d639393020f330d48889716fc0e306b9, type: 3}
   spawnRate: 4
   heightOffset: 9
+  logicScript: {fileID: 0}
 --- !u!4 &1703979748
 Transform:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class CloudSpawnScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnRate = Random.Range(3,6);
+        spawnRate = Random.Range(1,2);
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class CloudSpawnScript : MonoBehaviour
             spawnCloud();
             // Debug.Log(timer.ToString());
             // Debug.Log(sawnRate.ToString());
-            spawnRate = Random.Range(3,6);
+            spawnRate = Random.Range(10,20);
             timer = 0;
         } else {
             timer = timer + Time.deltaTime;

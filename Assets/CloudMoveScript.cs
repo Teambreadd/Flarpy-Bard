@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CloudMoveScript : MonoBehaviour
 {
-    public float moveSpeed = 5;
+    public float moveSpeed = 1;
     // Update is called once per frame
     void Update()
     {

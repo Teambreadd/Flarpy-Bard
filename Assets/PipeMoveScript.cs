@@ -5,11 +5,14 @@ using UnityEngine;
 public class PipeMoveScript : MonoBehaviour
 {
     public float moveSpeed = 5;
+    private float originalMoveSpeed;
     public float deadZone = -34;
+    public LogicScript logicScript;
     // Start is called before the first frame update
     void Start()
     {
-        
+        logicScript = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        originalMoveSpeed = moveSpeed;
     }
 
     // Update is called once per frame
@@ -21,5 +24,7 @@ public class PipeMoveScript : MonoBehaviour
             Debug.Log("Pipe Deleted");
             Destroy(gameObject);
         }
+        moveSpeed = originalMoveSpeed;
+        moveSpeed += logicScript.speedIncrease;
     }
 }
