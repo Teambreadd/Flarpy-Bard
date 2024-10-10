@@ -1258,6 +1258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pipe: {fileID: 3263556357750408170, guid: d639393020f330d48889716fc0e306b9, type: 3}
+  GoldenPipe: {fileID: 2802179807911349554, guid: b0250ef41c063aa4e9cc6070b1be98d0, type: 3}
   spawnRate: 4
   heightOffset: 9
   logicScript: {fileID: 0}

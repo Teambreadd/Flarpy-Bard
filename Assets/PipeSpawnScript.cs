@@ -6,15 +6,18 @@ using UnityEngine.AI;
 public class PipeSpawnScript : MonoBehaviour
 {
     public GameObject Pipe;
+    public GameObject GoldenPipe;
     public float spawnRate = 4;
     private float timer = 0;
     public float heightOffset;
     private int previousSpeedincrease;
     public LogicScript logicScript;
+    private int db = 0;
     // Start is called before the first frame update
     void Start()
     {
-        spawnPipe();
+        db++;
+        spawnPipe(Pipe);
         logicScript = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
         previousSpeedincrease = logicScript.speedIncrease;
     }
@@ -23,27 +26,40 @@ public class PipeSpawnScript : MonoBehaviour
     void Update()
     {
         if (timer > spawnRate) {
-            spawnPipe();
-            // Debug.Log(timer.ToString());
-            // Debug.Log(spawnRate.ToString());
-            timer = 0;
-            Debug.Log(spawnRate);
+            if (db == 2)
+            {
+                timer = 0;
+                Debug.Log("If");
+                spawnPipe(GoldenPipe);
+                db = 0;
+            } else 
+            {
+                timer = 0;
+                db++;
+                spawnPipe(Pipe);
+                // Debug.Log(timer.ToString());
+                // Debug.Log(spawnRate.ToString());
+                Debug.Log(spawnRate);
+                Debug.Log("Else");
+            }
         } else {
             timer = timer + Time.deltaTime;
         }
         if (previousSpeedincrease != logicScript.speedIncrease)
         {
             previousSpeedincrease = logicScript.speedIncrease;
-            spawnRate = spawnRate - 0.38f;
+            if (logicScript.speedIncrease <= 18)
+            {
+                spawnRate = spawnRate - 0.38f;
             Debug.Log("Gone Down" + spawnRate);
             // spawnRate can only go down a certain amount of times. I will make sure it will not go negative.
-            // Currently it will end up around 1.3s spawn rate at maximum speed.
+            }
         } 
     }
-    void spawnPipe()
+    void spawnPipe(GameObject pipe)
     {
         float lowestPoint = transform.position.y - heightOffset;
         float highestPoint = transform.position.y + heightOffset;
-        Instantiate(Pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), transform.position.z), transform.rotation);
+        Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), transform.position.z), transform.rotation);
     }
 }
