@@ -12,12 +12,21 @@ public class LogicScript : MonoBehaviour
     public Text scoreText;
     public int speedIncrease = 0;
     public int db = 0;
+    private int pipesPast = 1;
+    public AudioSource dingSFX;
+    public AudioSource restartSFX;
+    public AudioSource clickSFX;
+    public AudioSource gameOverSFX;
+    public AudioSource gameMusic;
+    private bool gameIsOver = false;
     [ContextMenu("Increase Score")]
     public void addScore(int scoreToAdd) 
     { 
+        dingSFX.Play();
         playerScore = playerScore + scoreToAdd;
         scoreText.text = playerScore.ToString();
-        if (playerScore <= 21)
+        pipesPast++;
+        if (pipesPast <= 21)
         {
             if (db == 2)
             {
@@ -32,9 +41,18 @@ public class LogicScript : MonoBehaviour
     public void restartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // clickSFX.Play();
+        // restartSFX.Play();
     }
     public void gameOver()
     {
-        gameOverScreen.SetActive(true);
+        if (gameIsOver == false)
+        {
+            gameIsOver = true;
+            gameMusic.Stop();
+            gameOverSFX.Play();
+            gameOverScreen.SetActive(true);
+        }
     }
 }
+
