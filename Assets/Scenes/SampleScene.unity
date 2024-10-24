@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa0026606362bb41be9cf0c29b6e2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 0}
+  logic: {fileID: 153365913}
   birdScript: {fileID: 1765105871}
 --- !u!61 &119474106
 BoxCollider2D:
@@ -503,7 +503,6 @@ MonoBehaviour:
   gameOverScreen: {fileID: 39530264}
   scoreText: {fileID: 64546579}
   speedIncrease: 0
-  db: 0
   dingSFX: {fileID: 153365915}
   restartSFX: {fileID: 153365916}
   clickSFX: {fileID: 153365917}
@@ -1753,7 +1752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa0026606362bb41be9cf0c29b6e2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 0}
+  logic: {fileID: 153365913}
   birdScript: {fileID: 1765105871}
 --- !u!61 &1662964308
 BoxCollider2D:
@@ -1995,7 +1994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRidgidbody: {fileID: 1765105868}
   flapStrength: 15
-  logic: {fileID: 0}
+  logic: {fileID: 153365913}
   birdIsAlive: 1
   jumpSFX: {fileID: 1765105874}
   hitSFX: {fileID: 1765105875}

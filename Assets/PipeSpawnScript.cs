@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+// This script is very similar to cloudSpawnScript. Check cloudSpawnScript for explaination.
 public class PipeSpawnScript : MonoBehaviour
 {
     public GameObject Pipe;
