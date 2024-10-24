@@ -18,4 +18,12 @@ public class ArrowMoveScript : MonoBehaviour
             // If true, destroys game object.
         }
     }
+    // Event Listener that destroys the arrow if it hits a pipe.
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Pipe"))
+        {
+            Destroy(transform.gameObject);
+        }
+    }
 }
