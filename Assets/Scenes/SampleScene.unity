@@ -508,6 +508,7 @@ MonoBehaviour:
   clickSFX: {fileID: 153365917}
   gameOverSFX: {fileID: 153365918}
   gameMusic: {fileID: 153365919}
+  gameIsOver: 0
 --- !u!4 &153365914
 Transform:
   m_ObjectHideFlags: 0
@@ -1722,6 +1723,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1531564202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1531564204}
+  - component: {fileID: 1531564203}
+  m_Layer: 0
+  m_Name: Ghost Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1531564203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531564202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72fc26a10134fde4d9a8d072a440f30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghost: {fileID: 6719069363052054593, guid: 7260f30264d83de4082d1a1c289b04c8, type: 3}
+  spawnRate: 5
+  heightOffset: 9
+  logicScript: {fileID: 153365913}
+--- !u!4 &1531564204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531564202}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30, y: 0, z: -0.06347544}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1662964306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,7 +1929,7 @@ GameObject:
   - component: {fileID: 1765105875}
   m_Layer: 3
   m_Name: Bird
-  m_TagString: Untagged
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2239,3 +2288,4 @@ SceneRoots:
   - {fileID: 153365914}
   - {fileID: 119474107}
   - {fileID: 1662964309}
+  - {fileID: 1531564204}

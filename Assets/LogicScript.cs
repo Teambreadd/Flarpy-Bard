@@ -26,8 +26,8 @@ public class LogicScript : MonoBehaviour
     public AudioSource gameOverSFX;
     public AudioSource gameMusic;
     // all these are references to audiosources. Public so I can reference them in Unity.
-    private bool gameIsOver = false;
-    // checks if game is over. Is a bool as it can either be true or false. Private as it is not used anywhere else.
+    public bool gameIsOver = false;
+    // checks if game is over. Is a bool as it can either be true or false. Public as it is used in GhostScript.
     // context menu allows me to test this addScore method manually in Unity.
     [ContextMenu("Increase Score")]
     // context menu allows me to test this addScore method manually in Unity.
