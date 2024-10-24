@@ -21,7 +21,7 @@ public class PipeMiddleScript2 : MonoBehaviour
     {
         if (collision.gameObject.layer == 3)
         {
-            logic.addScore(2);
+            logic.addScore(2, true);
         }
     }
 

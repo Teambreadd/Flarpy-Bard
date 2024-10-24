@@ -32,9 +32,9 @@ public class LogicScript : MonoBehaviour
     [ContextMenu("Increase Score")]
     // context menu allows me to test this addScore method manually in Unity.
     // addScore method adds score. ScoreToAdd parameter determines the score to add. 
-    public void addScore(int scoreToAdd) 
-    { 
-        if (gameIsOver == false) 
+    public void addScore(int scoreToAdd, bool isPipePassed)
+    {
+        if (gameIsOver == false)
         {
             dingSFX.Play();
             // play ding sound.
@@ -42,19 +42,24 @@ public class LogicScript : MonoBehaviour
             // add player score by the scoreToAdd value. 
             scoreText.text = playerScore.ToString();
             // Since score currently only increases when player passes a pipe, this method can be used to check how many pipes past.
-            pipesPast++;
-            if (pipesPast <= 21)
+            // Checks if the score increase is from passing a pipe. If true then the pipesPast variable can increase and speedUp game if necessary. 
+            if (isPipePassed)
             {
-                if (db == 2)
+                pipesPast++;
+                if (pipesPast <= 21)
                 {
-                    // increases speed every 3 pipes.
-                    speedIncrease++;
-                    db = 0;
-                    // reset db so the cycle can repeat itself.
-                } else 
-                {
-                    // if db is not 2 then add 1 to db.
-                    db++;
+                    if (db == 2)
+                    {
+                        // increases speed every 3 pipes.
+                        speedIncrease++;
+                        db = 0;
+                        // reset db so the cycle can repeat itself.
+                    }
+                    else
+                    {
+                        // if db is not 2 then add 1 to db.
+                        db++;
+                    }
                 }
             }
         }

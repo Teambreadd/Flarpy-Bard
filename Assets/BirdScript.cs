@@ -10,16 +10,18 @@ public class BirdScript : MonoBehaviour
     // reference to the ridid body. Public so I can set it in Unity.
     public float flapStrength;
     // flapStrength variable. Public as it is set in Unity.
-    public LogicScript logic; 
+    public LogicScript logic;
     // reference to the logic script. 
     public bool birdIsAlive = true;
     // birdIsAlive is a bool as it is either true or false. Public so I can use it in other classes.
     public AudioSource jumpSFX;
     public AudioSource hitSFX;
+    // audioSources, public so I can set it in Unity.
     //debounce variable
     private bool db = false;
-    // audioSources, public so I can set it in Unity.
-
+    public GameObject projectile;
+    // Reference to projectile gameObject.
+    public AudioSource shootSFX;
     // Update is called once per frame
     void Update()
     {
@@ -30,21 +32,35 @@ public class BirdScript : MonoBehaviour
             myRidgidbody.velocity = Vector2.up * flapStrength;
             jumpSFX.Play();
         }
+        else if (Input.GetKeyDown(KeyCode.Return) && birdIsAlive)
+        {
+            // if true, fire a projectile. (Creates a clone of the projectile prefab and sets its position and orientation to the bird.) 
+            // also play the shoot sound effect.
+            shootSFX.Play();
+            Instantiate(projectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+        }
     }
     // Listener that checks for bird collision. 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Since the only collisions in the game are the pipes, no need for check if the object it collides with is the pipe.
-        // set bird is alive to false so player can no longer jump. 
+        // Check if the colliding object has the Arrow tag.
+        if (collision.gameObject.CompareTag("Arrow"))
+        {
+            // If it does, return early and ignore the rest of the code
+            return;
+        }
+        // Set birdIsAlive to false so the player can no longer jump
         birdIsAlive = false;
+
         if (db == false)
         {
-            // set db to true so this code can't run again.
+            // Set db to true so this code can't run again
             db = true;
-            // play hitsfx
+            // Play hit SFX
             hitSFX.Play();
         }
-        // run the gameOver function in the logic script.
+        // Run the gameOver function in the logic script
         logic.gameOver();
     }
+
 }

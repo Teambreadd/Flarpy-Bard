@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ghostScript : MonoBehaviour
 {
-    public int moveSpeed = 7;
+    public float moveSpeed = 7;
     // movespeed variable determines the ghosts movespeed. Set to a default value of 1. Is public so it can be accessed in Unity if needed, and is an integer as it (currently) stays a whole number.
+    private float originalMoveSpeed;
+    // Variable for original movespeed. is a float as it could be a decimal and is private as it is only required in this script. 
     private BirdScript birdScript;
     // BirdScript referenced when the object is created. 
     private BoxCollider2D boxCollider2D;
@@ -22,6 +24,8 @@ public class ghostScript : MonoBehaviour
         hitSFX = audioSources[1];  // This gets the second audiosource in the list (HitSFX)
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
         // When the object is instantiated in the scene, find the GameObject tagged as "Logic" and get its LogicScript component.
+        originalMoveSpeed = moveSpeed;
+        // Set original movespeed to moveSpeed. 
 
     }
     // Event listener that checks for objects passing through it. (e.g., the bird)
@@ -40,6 +44,14 @@ public class ghostScript : MonoBehaviour
                 birdScript.birdIsAlive = false;
                 // Set the birdScript's birdIsAlive to false.
                 Destroy(gameObject);
+                // arrow is set to collision layer 6. 
+            } else if (collision.gameObject.layer == 6)
+            {
+                // adds 1 score. 
+                logic.addScore(1, false);
+                // Destroys the arrow and ghost. 
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
             }
         }
     }
@@ -54,5 +66,9 @@ public class ghostScript : MonoBehaviour
             Destroy(gameObject);
             // If true, destroys game object.
         }
+        moveSpeed = originalMoveSpeed;
+        // Set moveSpeed back to Original moveSpeed.
+        moveSpeed += logic.speedIncrease;
+        // Explained it in the PipeMoveScript.
     }
 }

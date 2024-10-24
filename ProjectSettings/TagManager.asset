@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Logic
   - Bird
+  - Arrow
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - Bird
   - Water
   - UI
-  - 
+  - Arrow
   - 
   - 
   - 

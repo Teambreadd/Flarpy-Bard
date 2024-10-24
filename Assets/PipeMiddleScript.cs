@@ -20,7 +20,7 @@ public class PipeMiddleScript : MonoBehaviour
         if (collision.gameObject.layer == 3)
         {
             // If the colliding object is in layer 3, (which is assigned to only the bird) call the addScore method. (This is to prevent the addscore method from firing when it detects pipes)
-            logic.addScore(1);
+            logic.addScore(1, true);
             // call the addscore method in the logicScript and pass in 1 as an argument. 
         }
     }

@@ -39,7 +39,7 @@ public class PipeMoveScript : MonoBehaviour
         // Increase moveSpeed by the logicScripts speedincrease variable. 
         // MoveSpeed is set to originalMoveSpeed before adding moveSpeed by logicScript to reset original the previous addition done by the speedIncrease variable.
         // E.g., 5 + 1 = 6
-        // set back to 5 ribht before.
+        // set back to 5 right before.
         // 5 + 2 = 7.
         // set back to 5 right before.
         // It appears that moveSpeed is increasing by 1.
