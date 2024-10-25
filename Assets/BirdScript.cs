@@ -17,11 +17,18 @@ public class BirdScript : MonoBehaviour
     public AudioSource jumpSFX;
     public AudioSource hitSFX;
     // audioSources, public so I can set it in Unity.
-    //debounce variable
+    // debounce variable
     private bool db = false;
     public GameObject projectile;
     // Reference to projectile gameObject.
     public AudioSource shootSFX;
+
+    // Cooldown-related variables
+    private float shootCooldown = 2.0f; 
+    // Cooldown duration in seconds
+    private float lastShotTime = -Mathf.Infinity; 
+    // Track last shot time
+
     // Update is called once per frame
     void Update()
     {
@@ -32,14 +39,18 @@ public class BirdScript : MonoBehaviour
             myRidgidbody.velocity = Vector2.up * flapStrength;
             jumpSFX.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.Return) && birdIsAlive)
+        else if (Input.GetKeyDown(KeyCode.Return) && birdIsAlive && Time.time >= lastShotTime + shootCooldown)
         {
             // if true, fire a projectile. (Creates a clone of the projectile prefab and sets its position and orientation to the bird.) 
             // also play the shoot sound effect.
             shootSFX.Play();
             Instantiate(projectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+
+            // Update the time of the last shot
+            lastShotTime = Time.time;
         }
     }
+
     // Listener that checks for bird collision. 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -62,5 +73,4 @@ public class BirdScript : MonoBehaviour
         // Run the gameOver function in the logic script
         logic.gameOver();
     }
-
 }
